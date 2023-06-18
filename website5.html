@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Language Support Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    label {
+      font-weight: bold;
+    }
+    
+    textarea {
+      width: 100%;
+      height: 150px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    function changeLanguage() {
+      var languageSelect = document.getElementById("language-select");
+      var selectedLanguage = languageSelect.value;
+      
+      var issueHeading = document.getElementById("issue-heading");
+      var languageLabel = document.querySelector("label[for='language-select']");
+      var issueLabel = document.querySelector("label[for='issue-text']");
+      var sendButton = document.querySelector("button");
+      
+      // Update the text based on the selected language
+      if (selectedLanguage === "de") {
+        issueHeading.innerText = "Beschreiben Sie Ihr Problem";
+        languageLabel.innerText = "Wählen Sie Ihre Sprache:";
+        issueLabel.innerText = "Beschreiben Sie Ihr Problem:";
+        sendButton.innerText = "Senden";
+      } else if (selectedLanguage === "ru") {
+        issueHeading.innerText = "Опишите вашу проблему";
+        languageLabel.innerText = "Выберите ваш язык:";
+        issueLabel.innerText = "Опишите вашу проблему:";
+        sendButton.innerText = "Отправить";
+      } else if (selectedLanguage === "pl") {
+        issueHeading.innerText = "Opisz swój problem";
+        languageLabel.innerText = "Wybierz swój język:";
+        issueLabel.innerText = "Opisz swój problem:";
+        sendButton.innerText = "Wyślij";
+      } else if (selectedLanguage === "ro") {
+        issueHeading.innerText = "Descrieți problema dumneavoastră";
+        languageLabel.innerText = "Selectați limba:";
+        issueLabel.innerText = "Descrieți problema dumneavoastră:";
+        sendButton.innerText = "Trimite";
+      } else {
+        issueHeading.innerText = "Tell us about your issue";
+        languageLabel.innerText = "Select your language:";
+        issueLabel.innerText = "Describe your issue:";
+        sendButton.innerText = "Send";
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1 id="issue-heading">Tell us about your issue</h1>
+  
+  <form>
+    <label for="language-select">Select your language:</label>
+    <select id="language-select" onchange="changeLanguage()">
+      <option value="en">English</option>
+      <option value="de">German</option>
+      <option value="ru">Russian</option>
+      <option value="pl">Polish</option>
+      <option value="ro">Romanian</option>
+    </select>
+    
+    <label for="issue-text">Describe your issue:</label>
+    <textarea id="issue-text" placeholder="Type your issue here..."></textarea>
+    
+    <button type="button">Send</button>
+  </form>
+</body>
+</html>
